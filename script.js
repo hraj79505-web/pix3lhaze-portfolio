@@ -348,7 +348,8 @@ window.handleFormSubmit = async (e) => {
   };
 
   try {
-    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+    // Explicitly pass public key as 4th parameter for SDK v4 reliability
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY);
 
     // ── Success ──
     showFormState('success', btn, txt, ico, 'Message Sent! ✓');
@@ -356,10 +357,23 @@ window.handleFormSubmit = async (e) => {
     setTimeout(() => resetFormState(btn, txt, ico), 4500);
 
   } catch (err) {
-    console.error('EmailJS error:', err);
-    // ── Error ──
-    showFormState('error', btn, txt, ico, 'Failed to send. Try again!');
-    setTimeout(() => resetFormState(btn, txt, ico), 4000);
+    console.warn('EmailJS send() failed, trying sendForm()...', err);
+    try {
+      // Fallback try with sendForm
+      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form, EMAILJS_PUBLIC_KEY);
+      showFormState('success', btn, txt, ico, 'Message Sent! ✓');
+      form.reset();
+      setTimeout(() => resetFormState(btn, txt, ico), 4500);
+    } catch (fallbackErr) {
+      console.error('EmailJS error detail:', fallbackErr || err);
+      const detail = (fallbackErr && fallbackErr.text) || (err && err.text) || '';
+      if (detail.includes('domain') || detail.includes('origin')) {
+        showFormState('error', btn, txt, ico, 'Domain security error in EmailJS');
+      } else {
+        showFormState('error', btn, txt, ico, 'Failed to send. Try again!');
+      }
+      setTimeout(() => resetFormState(btn, txt, ico), 4000);
+    }
   }
 };
 
