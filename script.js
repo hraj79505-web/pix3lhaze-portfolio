@@ -303,7 +303,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') window.close
 
 // ── EmailJS config ──────────────────────────────────────────────
 const EMAILJS_SERVICE_ID  = 'service_sxvrwj6';
-const EMAILJS_TEMPLATE_ID = 'template_t2fyp62';
+const EMAILJS_TEMPLATE_ID = 'template_jqujmll';
 // ★ Paste your EmailJS Public Key below (Account → API Keys on emailjs.com)
 const EMAILJS_PUBLIC_KEY  = '5ipBI6nAKDHFqSDGo';
 // ────────────────────────────────────────────────────────────────
