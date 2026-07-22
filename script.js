@@ -212,17 +212,61 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 /* ══════════════════════════════════
    8. LIGHTBOX
 ══════════════════════════════════ */
-window.openLightbox = (title, desc) => {
+window.openLightbox = (title, desc, src = 'videos/video1.mp4', type = 'video') => {
+  const lightbox = document.getElementById('lightbox');
+  const mediaContainer = document.querySelector('.lightbox-media');
   document.getElementById('lightboxTitle').textContent = title;
   document.getElementById('lightboxDesc').textContent  = desc;
+
+  // Render media
+  if (!mediaContainer) return;
+  mediaContainer.innerHTML = '';
+
+  if (type === 'youtube') {
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${src}?autoplay=1&rel=0`;
+    iframe.allow = 'autoplay; fullscreen; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = 'none';
+    mediaContainer.appendChild(iframe);
+  } else if (type === 'image') {
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = title;
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.style.objectFit = 'cover';
+    mediaContainer.appendChild(img);
+  } else {
+    // Local MP4 video player (default)
+    const video = document.createElement('video');
+    video.src = src;
+    video.controls = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.style.width = '100%';
+    video.style.height = '100%';
+    video.style.objectFit = 'contain';
+    video.innerHTML = '<p style="color:#888;padding:20px;text-align:center">Add your video file to <code>videos/video1.mp4</code> or pass your YouTube/Vimeo link.</p>';
+    mediaContainer.appendChild(video);
+  }
+
   lightbox.classList.add('active');
   document.body.style.overflow = 'hidden';
 };
+
 window.closeLightbox = () => {
+  const lightbox = document.getElementById('lightbox');
+  const mediaContainer = document.querySelector('.lightbox-media');
+  if (mediaContainer) mediaContainer.innerHTML = ''; // Stop video audio
   lightbox.classList.remove('active');
   document.body.style.overflow = '';
 };
+
 document.addEventListener('keydown', e => { if (e.key === 'Escape') window.closeLightbox(); });
+
 
 /* ══════════════════════════════════
    9. VIDEO TESTIMONIALS MODAL
