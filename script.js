@@ -258,7 +258,8 @@ window.openLightbox = (title, desc, src = 'videos/video1.mp4', type = 'video') =
     img.alt = title;
     img.style.width = '100%';
     img.style.height = '100%';
-    img.style.objectFit = 'cover';
+    img.style.maxHeight = '70vh';
+    img.style.objectFit = 'contain';
     mediaContainer.appendChild(img);
   } else {
     // Local MP4 video player (default)
