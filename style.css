@@ -1996,7 +1996,14 @@ body:hover .cursor { opacity: 1; }
   .nav-links.open { display: flex !important; }
   .hamburger { display: flex; z-index: 1000; }
   .nav-insta span { display: none; }
-  .hero-content { padding: 0 20px; padding-top: 90px; max-width: 100%; box-sizing: border-box; }
+  .hero { min-height: auto; padding-top: 75px; padding-bottom: 30px; align-items: flex-start; }
+  .hero-content { padding: 10px 20px 20px; margin-top: 0; max-width: 100%; box-sizing: border-box; }
+  .hero-badge { margin-bottom: 10px; }
+  .hero-title-wrap { margin-bottom: 10px; }
+  .hero-handle { margin-top: 4px; }
+  .hero-roles { margin-bottom: 16px; gap: 8px; }
+  .hero-tagline { margin-bottom: 24px; }
+  .hero-cta { margin-bottom: 28px; }
   .hero-name { font-size: clamp(2.4rem, 11vw, 4.2rem); letter-spacing: -1px; word-break: break-word; max-width: 100%; }
   .film-strip { display: none; }
   .services-grid { grid-template-columns: 1fr; }
