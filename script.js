@@ -40,18 +40,18 @@ const loadingInterval = setInterval(() => {
 /* ══════════════════════════════════
    2. CUSTOM CURSOR
 ══════════════════════════════════ */
-let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
+let mouseX = -100, mouseY = -100, followerX = -100, followerY = -100;
 
 document.addEventListener('mousemove', (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
   cursor.style.left = mouseX + 'px';
   cursor.style.top  = mouseY + 'px';
-});
+}, { passive: true });
 
 function animateCursorFollower() {
-  followerX += (mouseX - followerX) * 0.12;
-  followerY += (mouseY - followerY) * 0.12;
+  followerX += (mouseX - followerX) * 0.18;
+  followerY += (mouseY - followerY) * 0.18;
   cursorFollower.style.left = followerX + 'px';
   cursorFollower.style.top  = followerY + 'px';
   requestAnimationFrame(animateCursorFollower);
@@ -59,32 +59,42 @@ function animateCursorFollower() {
 animateCursorFollower();
 
 document.addEventListener('mouseover', (e) => {
-  if (e.target.closest('a, button, .portfolio-card, .service-card')) {
+  if (e.target.closest('a, button, input, textarea, select, .portfolio-card, .service-card, .testimonial-card, .filter-btn, .card-view-btn')) {
     cursor.style.width = '18px';
     cursor.style.height = '18px';
     cursorFollower.style.width = '56px';
     cursorFollower.style.height = '56px';
     cursorFollower.style.borderColor = 'rgba(212,160,23,0.9)';
+    cursorFollower.style.backgroundColor = 'rgba(212,160,23,0.06)';
   }
-});
+}, { passive: true });
+
 document.addEventListener('mouseout', (e) => {
-  if (e.target.closest('a, button, .portfolio-card, .service-card')) {
+  if (e.target.closest('a, button, input, textarea, select, .portfolio-card, .service-card, .testimonial-card, .filter-btn, .card-view-btn')) {
     cursor.style.width = '10px';
     cursor.style.height = '10px';
     cursorFollower.style.width = '36px';
     cursorFollower.style.height = '36px';
     cursorFollower.style.borderColor = 'rgba(212,160,23,0.6)';
+    cursorFollower.style.backgroundColor = 'transparent';
   }
-});
+}, { passive: true });
 
 /* ══════════════════════════════════
-   3. NAVBAR
+   3. NAVBAR & SCROLL PERFORMANCE
 ══════════════════════════════════ */
+let scrollTicking = false;
 window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
-  backToTop.classList.toggle('visible', window.scrollY > 400);
-  updateActiveNavLink();
-});
+  if (!scrollTicking) {
+    window.requestAnimationFrame(() => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      backToTop.classList.toggle('visible', window.scrollY > 350);
+      updateActiveNavLink();
+      scrollTicking = false;
+    });
+    scrollTicking = true;
+  }
+}, { passive: true });
 
 function updateActiveNavLink() {
   const scrollY = window.scrollY + 100;
@@ -184,7 +194,7 @@ function initScrollAnimations() {
     if (type === 'fade-up')    el.style.transform = 'translateY(40px)';
     if (type === 'fade-right') el.style.transform = 'translateX(-40px)';
     if (type === 'fade-left')  el.style.transform = 'translateX(40px)';
-    el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    el.style.transition = 'opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1)';
     fadeObs.observe(el);
   });
 }
@@ -203,7 +213,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
       if (show) {
         card.style.animation = 'none';
         card.offsetHeight;
-        card.style.animation = 'fadeSlideUp 0.4s ease both';
+        card.style.animation = 'fadeSlideUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) both';
       }
     });
   });
