@@ -811,9 +811,9 @@ body:hover .cursor { opacity: 1; }
   height: 100%;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid var(--border);
+  border: none;
   position: relative;
-  background: var(--bg-deep);
+  background: transparent;
 }
 
 .about-profile-img {
@@ -822,7 +822,7 @@ body:hover .cursor { opacity: 1; }
   object-fit: cover;
   object-position: center 15%;
   border-radius: var(--radius-lg);
-  background: var(--bg-deep);
+  background: transparent;
   transition: transform 0.5s ease;
 }
 
