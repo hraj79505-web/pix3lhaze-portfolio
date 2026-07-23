@@ -891,6 +891,15 @@ body:hover .cursor { opacity: 1; }
   margin-bottom: 20px;
 }
 
+.about-welcome-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
 .about-highlights {
   display: flex;
   flex-direction: column;
