@@ -392,21 +392,8 @@
         <button class="filter-btn" data-filter="photo">Photography</button>
       </div>
       <div class="portfolio-grid" id="portfolioGrid">
-        <div class="portfolio-card" data-category="video" data-aos="fade-up">
-          <div class="card-media">
-            <img src="videos/thumb1.jpg" alt="Madhuram '26 — Cultural Event Edit" class="card-thumb-img thumb-madhuram" />
-            <div class="card-overlay">
-              <div class="card-overlay-content">
-                <span class="card-type"><i class="fas fa-cut"></i> Video Edit</span>
-                <h4>Madhuram '26 — Cultural Event Edit</h4>
-                <p>High-energy stage performance & beat-synced edit</p>
-                <button class="card-view-btn" onclick="openLightbox('Madhuram \'26 — Cultural Event Edit','High-energy stage performance & beat-synced video edit', 'videos/video1.mp4', 'video')"><i class="fas fa-play"></i> Watch Video</button>
-              </div>
-            </div>
-          </div>
-          <div class="card-info"><h4>Madhuram '26 — Cultural Event Edit</h4><div class="card-tags"><span>Event Edit</span><span>Beat Sync</span></div></div>
-        </div>
-        <div class="portfolio-card wide-card" data-category="cine" data-aos="fade-up" data-aos-delay="100">
+        <!-- Row 1: Cinematography Reel #1 (Wide 2-col) + Video Edit #1 (1-col) -->
+        <div class="portfolio-card wide-card" data-category="cine" data-aos="fade-up">
           <div class="card-media">
             <img src="videos/thumb_cine1.jpg" alt="Cinematography Reel #1 — Shot & Directed by Himanshu Raj" class="card-thumb-img" />
             <div class="card-overlay">
@@ -420,6 +407,23 @@
           </div>
           <div class="card-info"><h4>Cinematography Reel #1</h4><div class="card-tags"><span>Cinematography</span><span>Direction</span></div></div>
         </div>
+
+        <div class="portfolio-card" data-category="video" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-media">
+            <img src="videos/thumb1.jpg" alt="Madhuram '26 — Cultural Event Edit" class="card-thumb-img thumb-madhuram" />
+            <div class="card-overlay">
+              <div class="card-overlay-content">
+                <span class="card-type"><i class="fas fa-cut"></i> Video Edit</span>
+                <h4>Madhuram '26 — Cultural Event Edit</h4>
+                <p>High-energy stage performance & beat-synced edit</p>
+                <button class="card-view-btn" onclick="openLightbox('Madhuram \'26 — Cultural Event Edit','High-energy stage performance & beat-synced video edit', 'videos/video1.mp4', 'video')"><i class="fas fa-play"></i> Watch Video</button>
+              </div>
+            </div>
+          </div>
+          <div class="card-info"><h4>Madhuram '26 — Cultural Event Edit</h4><div class="card-tags"><span>Event Edit</span><span>Beat Sync</span></div></div>
+        </div>
+
+        <!-- Row 2: Photography #1 (1-col) + Video Edit #2 (1-col) + Photography #2 (1-col) -->
         <div class="portfolio-card" data-category="photo" data-aos="fade-up" data-aos-delay="150">
           <div class="card-media">
             <img src="images/photo1_web.jpg" alt="Photography #1 — Portrait & Fine Art" class="card-thumb-img" />
@@ -435,7 +439,7 @@
           <div class="card-info"><h4>Photography #1</h4><div class="card-tags"><span>Portrait</span><span>Fine Art</span></div></div>
         </div>
 
-        <div class="portfolio-card wide-card" data-category="video" data-aos="fade-up" data-aos-delay="250">
+        <div class="portfolio-card" data-category="video" data-aos="fade-up" data-aos-delay="200">
           <div class="card-media">
             <div class="card-placeholder video-thumb-2"><i class="fas fa-film"></i><span>Video Edit #2</span></div>
             <div class="card-overlay">
@@ -449,7 +453,8 @@
           </div>
           <div class="card-info"><h4>Commercial Ad — Product Shoot</h4><div class="card-tags"><span>Premiere Pro</span><span>After Effects</span></div></div>
         </div>
-        <div class="portfolio-card" data-category="photo" data-aos="fade-up" data-aos-delay="300">
+
+        <div class="portfolio-card" data-category="photo" data-aos="fade-up" data-aos-delay="250">
           <div class="card-media">
             <img src="images/photo2_web.jpg" alt="Photography #2 — Landscape & Visual Aesthetics" class="card-thumb-img" />
             <div class="card-overlay">
