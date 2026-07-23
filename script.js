@@ -231,6 +231,17 @@ window.openLightbox = (title, desc, src = 'videos/video1.mp4', type = 'video') =
     iframe.style.height = '100%';
     iframe.style.border = 'none';
     mediaContainer.appendChild(iframe);
+  } else if (type === 'instagram') {
+    const iframe = document.createElement('iframe');
+    const postId = src.includes('instagram.com') ? (src.split('/p/')[1] || src.split('/reel/')[1]).split('/')[0] : src;
+    iframe.src = `https://www.instagram.com/p/${postId}/embed/`;
+    iframe.allow = 'autoplay; fullscreen; picture-in-picture';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = 'none';
+    iframe.style.borderRadius = '12px';
+    iframe.style.background = '#000';
+    mediaContainer.appendChild(iframe);
   } else if (type === 'image') {
     const img = document.createElement('img');
     img.src = src;
@@ -251,6 +262,16 @@ window.openLightbox = (title, desc, src = 'videos/video1.mp4', type = 'video') =
     video.style.objectFit = 'contain';
     video.innerHTML = '<p style="color:#888;padding:20px;text-align:center">Add your video file to <code>videos/video1.mp4</code> or pass your YouTube/Vimeo link.</p>';
     mediaContainer.appendChild(video);
+  }
+
+  const instaBtn = document.querySelector('.lightbox-actions a');
+  if (instaBtn) {
+    if (type === 'instagram') {
+      const postId = src.includes('instagram.com') ? (src.split('/p/')[1] || src.split('/reel/')[1]).split('/')[0] : src;
+      instaBtn.href = `https://www.instagram.com/p/${postId}/`;
+    } else {
+      instaBtn.href = 'https://www.instagram.com/pix3lhaze';
+    }
   }
 
   lightbox.classList.add('active');
