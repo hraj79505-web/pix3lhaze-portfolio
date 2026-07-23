@@ -1268,6 +1268,9 @@ body:hover .cursor { opacity: 1; }
   object-position: center;
   transition: transform 0.5s ease;
 }
+.card-thumb-img.thumb-madhuram {
+  object-position: center top !important;
+}
 .portfolio-card:hover .card-thumb-img {
   transform: scale(1.08);
 }
