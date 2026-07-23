@@ -763,7 +763,7 @@ body:hover .cursor { opacity: 1; }
 
 /* ═══════════════ ABOUT ═══════════════ */
 .about {
-  padding: 70px 0;
+  padding: 120px 0;
   position: relative;
 }
 
@@ -933,7 +933,7 @@ body:hover .cursor { opacity: 1; }
 
 /* ═══════════════ SKILLS ═══════════════ */
 .skills {
-  padding: 70px 0;
+  padding: 120px 0;
   position: relative;
   overflow: hidden;
 }
@@ -1128,7 +1128,7 @@ body:hover .cursor { opacity: 1; }
 
 /* ═══════════════ PORTFOLIO ═══════════════ */
 .portfolio {
-  padding: 70px 0;
+  padding: 120px 0;
 }
 
 .portfolio-filters {
@@ -1358,7 +1358,7 @@ body:hover .cursor { opacity: 1; }
 
 /* ═══════════════ SERVICES ═══════════════ */
 .services {
-  padding: 70px 0;
+  padding: 120px 0;
   background: radial-gradient(ellipse at 50% 0%, rgba(212,160,23,0.04) 0%, transparent 60%);
 }
 
@@ -1493,7 +1493,7 @@ body:hover .cursor { opacity: 1; }
 .service-link:hover { color: var(--gold); }
 
 /* ═══════════════ TESTIMONIALS ═══════════════ */
-.testimonials { padding: 70px 0; }
+.testimonials { padding: 120px 0; }
 
 .testimonials-slider { margin-top: 20px; }
 
@@ -1586,7 +1586,7 @@ body:hover .cursor { opacity: 1; }
 
 /* ═══════════════ CONTACT ═══════════════ */
 .contact {
-  padding: 70px 0;
+  padding: 120px 0;
   position: relative;
 }
 
@@ -1903,30 +1903,17 @@ body:hover .cursor { opacity: 1; }
   .nav-links.open { display: flex; transform: translateX(0); }
   .hamburger { display: flex; z-index: 1000; }
   .nav-insta span { display: none; }
-  .hero { min-height: auto; padding-top: 75px; padding-bottom: 30px; }
-  .hero-content { padding: 10px 20px 20px; }
-  .hero-badge { margin-bottom: 12px; padding: 4px 12px; font-size: 0.72rem; }
-  .hero-name { font-size: clamp(2.8rem, 13vw, 4.5rem); letter-spacing: -2px; }
+  .hero-content { padding: 0 24px; padding-top: 100px; }
+  .hero-name { font-size: clamp(3rem, 15vw, 5rem); letter-spacing: -2px; }
   .film-strip { display: none; }
   .services-grid { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr; }
   .portfolio-card.wide-card { grid-column: span 1; }
-  .testimonial-track { grid-template-columns: 1fr; }
   .footer-top { flex-direction: column; gap: 32px; padding: 40px 24px; }
   .footer-links { flex-wrap: wrap; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; padding: 16px 24px; }
   .showreel-inner { flex-direction: column; padding: 32px 24px; text-align: center; }
-  .hero-stats { gap: 16px; margin-top: 12px; }
-  .stat-num { font-size: 1.8rem; }
-  .stat-item p { font-size: 0.72rem; letter-spacing: 0.5px; }
-  .stat-divider { height: 36px; }
-  .about, .skills, .portfolio, .services, .testimonials, .contact { padding: 40px 0; }
-  .about-grid { margin-top: 24px; gap: 32px; }
-  .vtesti-hero { margin-bottom: 28px; gap: 24px; }
-  .about-highlights { margin: 20px 0; }
   .contact-form-wrap { padding: 28px 20px; }
-  .scroll-indicator { display: none; }
-  .card-thumb-img { transform: scale(1.08); }
 }
 
 @media (max-width: 480px) {
