@@ -1923,6 +1923,7 @@ body:hover .cursor { opacity: 1; }
   .form-row { grid-template-columns: 1fr; }
   .contact-form-wrap { padding: 28px 20px; }
   .scroll-indicator { display: none; }
+  .card-thumb-img { transform: scale(1.08); }
 }
 
 @media (max-width: 480px) {
