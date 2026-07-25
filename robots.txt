@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pix3lhaze.in/sitemap.xml
