@@ -1070,26 +1070,30 @@ body:hover .cursor { opacity: 1; }
 }
 
 .skill-icon {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 800;
-  font-size: 0.8rem;
   flex-shrink: 0;
+  background: transparent;
 }
 
-.skill-icon.adobe { background: #4267B2; color: #fff; }
-.skill-icon.aftereffects { background: #9999FF; color: #1a1a3e; }
-.skill-icon.photoshop { background: #31A8FF; color: #001E36; }
-.skill-icon.lightroom { background: #31C5F0; color: #001E36; }
-.skill-icon.davinci { background: #F4360F; color: #fff; }
-.skill-icon.capcut { background: linear-gradient(135deg, #1a1a1a, #333); color: #fff; }
-.skill-icon.cine-orange { background: linear-gradient(135deg, #FF8C00, #FFA500); color: #000; }
-.skill-icon.cine-blue { background: linear-gradient(135deg, #0066FF, #0099FF); color: #fff; }
+.software-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  display: block;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), filter 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-item:hover .software-logo-img,
+.belt-item:hover .software-logo-img {
+  transform: translateY(-2px) scale(1.1);
+  filter: drop-shadow(0 6px 16px rgba(212, 160, 23, 0.45));
+}
 
 .skill-info { flex: 1; }
 
@@ -1169,18 +1173,8 @@ body:hover .cursor { opacity: 1; }
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 800;
-  font-size: 0.85rem;
+  background: transparent;
 }
-
-.belt-logo.adobe { background: #4267B2; color: #fff; }
-.belt-logo.aftereffects { background: #9999FF; color: #1a1a3e; }
-.belt-logo.photoshop { background: #31A8FF; color: #001E36; }
-.belt-logo.lightroom { background: #31C5F0; color: #001E36; }
-.belt-logo.davinci { background: #F4360F; color: #fff; }
-.belt-logo.capcut { background: linear-gradient(135deg, #1a1a1a, #444); color: #fff; }
-.belt-logo.canva { background: linear-gradient(135deg, #00C4CC, #7B2FF7); color: #fff; }
 
 .belt-item p {
   font-size: 0.72rem;
