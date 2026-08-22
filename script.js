@@ -200,24 +200,98 @@ function initScrollAnimations() {
 }
 
 /* ══════════════════════════════════
-   7. PORTFOLIO FILTER
+   7. PORTFOLIO FILTER & DYNAMIC LOADER
 ══════════════════════════════════ */
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter = btn.getAttribute('data-filter');
-    document.querySelectorAll('.portfolio-card').forEach(card => {
-      const show = filter === 'all' || card.getAttribute('data-category') === filter;
-      card.classList.toggle('hidden', !show);
-      if (show) {
-        card.style.animation = 'none';
-        card.offsetHeight;
-        card.style.animation = 'fadeSlideUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) both';
-      }
-    });
+function bindPortfolioFilters() {
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+      document.querySelectorAll('.portfolio-card').forEach(card => {
+        const show = filter === 'all' || card.getAttribute('data-category') === filter;
+        card.classList.toggle('hidden', !show);
+        if (show) {
+          card.style.animation = 'none';
+          card.offsetHeight;
+          card.style.animation = 'fadeSlideUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) both';
+        }
+      });
+    };
   });
-});
+}
+bindPortfolioFilters();
+
+// ── Dynamic Portfolio Loader from Backend ──
+async function loadDynamicPortfolio() {
+  const grid = document.getElementById('portfolioGrid');
+  if (!grid) return;
+  try {
+    const res = await fetch('https://pix3lhaze-backend-production.up.railway.app/api/portfolio');
+    const data = await res.json();
+    if (data.success && data.data && data.data.length > 0) {
+      grid.innerHTML = data.data.map((p, idx) => {
+        const isWide = p.isWide ? 'wide-card' : '';
+        const delay = (idx % 4) * 100;
+        let typeIcon = 'fa-cut';
+        let typeLabel = 'Video Edit';
+        let actionLabel = 'Watch Video';
+        let actionIcon = 'fa-play';
+
+        if (p.category === 'cine') {
+          typeIcon = 'fa-video';
+          typeLabel = 'Cinematography';
+        } else if (p.category === 'photo') {
+          typeIcon = 'fa-camera';
+          typeLabel = 'Photography';
+          actionLabel = 'View Photo';
+          actionIcon = 'fa-eye';
+        } else if (p.category === 'web') {
+          typeIcon = 'fa-code';
+          typeLabel = 'Web Development';
+          actionLabel = 'View Project';
+          actionIcon = 'fa-external-link-alt';
+        }
+
+        const thumbSrc = p.thumbnail || 'videos/thumb1.jpg';
+        const tagsHtml = (p.tags && p.tags.length) ? p.tags.map(t => `<span>${escHtml(t)}</span>`).join('') : `<span>${typeLabel}</span>`;
+        const escapedTitle = escHtml(p.title);
+        const escapedDesc = escHtml(p.description || '');
+        const mediaParam = p.mediaUrl.replace(/'/g, "\\'");
+
+        return `
+        <div class="portfolio-card ${isWide}" data-category="${p.category}" data-aos="fade-up" data-aos-delay="${delay}">
+          <div class="card-media">
+            <img src="${thumbSrc}" alt="${escapedTitle}" class="card-thumb-img" onerror="this.src='videos/thumb1.jpg'" />
+            <div class="card-overlay">
+              <div class="card-overlay-content">
+                <span class="card-type"><i class="fas ${typeIcon}"></i> ${typeLabel}</span>
+                <h4>${escapedTitle}</h4>
+                <p>${escapedDesc}</p>
+                <button class="card-view-btn" onclick="openLightbox('${escapedTitle.replace(/'/g, "\\'")}','${escapedDesc.replace(/'/g, "\\'")}', '${mediaParam}', '${p.mediaType || 'video'}')"><i class="fas ${actionIcon}"></i> ${actionLabel}</button>
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <h4>${escapedTitle}</h4>
+            <div class="card-tags">${tagsHtml}</div>
+          </div>
+        </div>`;
+      }).join('');
+
+      bindPortfolioFilters();
+      if (typeof AOS !== 'undefined') AOS.refresh();
+    }
+  } catch (err) {
+    console.log('Using default static portfolio items:', err);
+  }
+}
+loadDynamicPortfolio();
+
+function escHtml(str) {
+  if (!str) return '';
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
 
 /* ══════════════════════════════════
    8. LIGHTBOX
