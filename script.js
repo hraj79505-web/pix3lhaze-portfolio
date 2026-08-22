@@ -472,10 +472,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 ══════════════════════════════════ */
 window.addEventListener('DOMContentLoaded', () => {
   createHeroParticles();
-  // Initialise EmailJS after SDK has loaded
-  if (typeof emailjs !== 'undefined') {
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-  }
 });
 
 
