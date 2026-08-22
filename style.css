@@ -1274,7 +1274,7 @@ body:hover .cursor { opacity: 1; }
 }
 .wide-card .card-thumb-img,
 .card-thumb-img.thumb-cine {
-  object-position: center 75% !important;
+  object-position: center 95% !important;
 }
 .card-thumb-img.thumb-madhuram {
   object-position: center center !important;
@@ -1286,7 +1286,7 @@ body:hover .cursor { opacity: 1; }
   }
   .wide-card .card-thumb-img,
   .card-thumb-img.thumb-cine {
-    object-position: center 80% !important;
+    object-position: center 100% !important;
   }
 }
 .portfolio-card:hover .card-thumb-img {
