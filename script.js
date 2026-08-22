@@ -374,10 +374,22 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') window.close
 })();
 
 /* ══════════════════════════════════
-   10. CONTACT FORM — Backend API
+   10. CONTACT FORM — Backend API + EmailJS
 ══════════════════════════════════ */
 
 const BACKEND_API = 'https://pix3lhaze-backend-production.up.railway.app';
+
+// EmailJS config
+const EMAILJS_SERVICE_ID  = 'service_sxvrwj6';
+const EMAILJS_TEMPLATE_ID = 'template_jqujmll';
+const EMAILJS_PUBLIC_KEY  = '5ipBI6nAKDHFqSDGo';
+
+// Initialise EmailJS
+(function initEmailJS() {
+  if (typeof emailjs !== 'undefined') {
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  }
+})();
 
 window.handleFormSubmit = async (e) => {
   e.preventDefault();
@@ -393,34 +405,54 @@ window.handleFormSubmit = async (e) => {
   ico.className     = 'fas fa-spinner fa-spin';
   btn.style.opacity = '0.8';
 
-  // ── Collect form data ──
-  const payload = {
-    name:    document.getElementById('contactName').value.trim(),
-    email:   document.getElementById('contactEmail').value.trim(),
-    service: document.getElementById('contactService').value  || '',
-    budget:  document.getElementById('contactBudget').value   || '',
-    message: document.getElementById('contactMessage').value.trim()
+  const nameVal    = document.getElementById('contactName').value.trim();
+  const emailVal   = document.getElementById('contactEmail').value.trim();
+  const serviceVal = document.getElementById('contactService').value  || 'Not specified';
+  const budgetVal  = document.getElementById('contactBudget').value   || 'Not specified';
+  const messageVal = document.getElementById('contactMessage').value.trim();
+
+  // 1. Send to Database (Backend API)
+  const backendPromise = fetch(`${BACKEND_API}/api/contact`, {
+    method:  'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body:    JSON.stringify({
+      name:    nameVal,
+      email:   emailVal,
+      service: serviceVal,
+      budget:  budgetVal,
+      message: messageVal
+    })
+  }).catch(err => console.error('Database save error:', err));
+
+  // 2. Send to Email (EmailJS)
+  const templateParams = {
+    from_name  : nameVal,
+    from_email : emailVal,
+    service    : serviceVal,
+    budget     : budgetVal,
+    message    : messageVal,
+    to_name    : 'Himanshu',
+    reply_to   : emailVal
   };
 
-  try {
-    const res  = await fetch(`${BACKEND_API}/api/contact`, {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify(payload)
-    });
-    const data = await res.json();
+  let emailPromise = Promise.resolve();
+  if (typeof emailjs !== 'undefined') {
+    emailPromise = emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY)
+      .catch(async (err) => {
+        console.warn('emailjs.send failed, trying sendForm fallback...', err);
+        return emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form, EMAILJS_PUBLIC_KEY);
+      })
+      .catch(err => console.error('EmailJS send error:', err));
+  }
 
-    if (res.ok && data.success) {
-      showFormState('success', btn, txt, ico, 'Message Sent! ✓');
-      form.reset();
-      setTimeout(() => resetFormState(btn, txt, ico), 4500);
-    } else {
-      showFormState('error', btn, txt, ico, data.error || 'Failed to send. Try again!');
-      setTimeout(() => resetFormState(btn, txt, ico), 4000);
-    }
+  try {
+    await Promise.allSettled([backendPromise, emailPromise]);
+    showFormState('success', btn, txt, ico, 'Message Sent! ✓');
+    form.reset();
+    setTimeout(() => resetFormState(btn, txt, ico), 4500);
   } catch (err) {
-    console.error('Contact form error:', err);
-    showFormState('error', btn, txt, ico, 'Network error. Please try again!');
+    console.error('Contact submission error:', err);
+    showFormState('error', btn, txt, ico, 'Failed to send. Try again!');
     setTimeout(() => resetFormState(btn, txt, ico), 4000);
   }
 };
