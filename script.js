@@ -374,37 +374,18 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') window.close
 })();
 
 /* ══════════════════════════════════
-   10. CONTACT FORM — EmailJS
+   10. CONTACT FORM — Backend API
 ══════════════════════════════════ */
 
-// ── EmailJS config ──────────────────────────────────────────────
-const EMAILJS_SERVICE_ID  = 'service_sxvrwj6';
-const EMAILJS_TEMPLATE_ID = 'template_jqujmll';
-// ★ Paste your EmailJS Public Key below (Account → API Keys on emailjs.com)
-const EMAILJS_PUBLIC_KEY  = '5ipBI6nAKDHFqSDGo';
-// ────────────────────────────────────────────────────────────────
-
-// Initialise EmailJS once
-(function initEmailJS() {
-  if (typeof emailjs !== 'undefined') {
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-  }
-})();
+const BACKEND_API = 'https://pix3lhaze-backend-production.up.railway.app';
 
 window.handleFormSubmit = async (e) => {
   e.preventDefault();
 
-  const btn     = document.getElementById('submitBtn');
-  const txt     = document.getElementById('submitText');
-  const ico     = document.getElementById('submitIcon');
-  const form    = document.getElementById('contactForm');
-
-  // ── Guard: public key not set ──
-  if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY_HERE') {
-    showFormState('error', btn, txt, ico, 'Add your EmailJS Public Key in script.js first!');
-    setTimeout(() => resetFormState(btn, txt, ico), 4000);
-    return;
-  }
+  const btn  = document.getElementById('submitBtn');
+  const txt  = document.getElementById('submitText');
+  const ico  = document.getElementById('submitIcon');
+  const form = document.getElementById('contactForm');
 
   // ── Loading state ──
   btn.disabled      = true;
@@ -413,43 +394,34 @@ window.handleFormSubmit = async (e) => {
   btn.style.opacity = '0.8';
 
   // ── Collect form data ──
-  const templateParams = {
-    from_name  : document.getElementById('contactName').value.trim(),
-    from_email : document.getElementById('contactEmail').value.trim(),
-    service    : document.getElementById('contactService').value  || 'Not specified',
-    budget     : document.getElementById('contactBudget').value   || 'Not specified',
-    message    : document.getElementById('contactMessage').value.trim(),
-    to_name    : 'Himanshu',    // your name — appears in the email template
-    reply_to   : document.getElementById('contactEmail').value.trim(),
+  const payload = {
+    name:    document.getElementById('contactName').value.trim(),
+    email:   document.getElementById('contactEmail').value.trim(),
+    service: document.getElementById('contactService').value  || '',
+    budget:  document.getElementById('contactBudget').value   || '',
+    message: document.getElementById('contactMessage').value.trim()
   };
 
   try {
-    // Explicitly pass public key as 4th parameter for SDK v4 reliability
-    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY);
+    const res  = await fetch(`${BACKEND_API}/api/contact`, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(payload)
+    });
+    const data = await res.json();
 
-    // ── Success ──
-    showFormState('success', btn, txt, ico, 'Message Sent! ✓');
-    form.reset();
-    setTimeout(() => resetFormState(btn, txt, ico), 4500);
-
-  } catch (err) {
-    console.warn('EmailJS send() failed, trying sendForm()...', err);
-    try {
-      // Fallback try with sendForm
-      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form, EMAILJS_PUBLIC_KEY);
+    if (res.ok && data.success) {
       showFormState('success', btn, txt, ico, 'Message Sent! ✓');
       form.reset();
       setTimeout(() => resetFormState(btn, txt, ico), 4500);
-    } catch (fallbackErr) {
-      console.error('EmailJS error detail:', fallbackErr || err);
-      const detail = (fallbackErr && fallbackErr.text) || (err && err.text) || '';
-      if (detail.includes('domain') || detail.includes('origin')) {
-        showFormState('error', btn, txt, ico, 'Domain security error in EmailJS');
-      } else {
-        showFormState('error', btn, txt, ico, 'Failed to send. Try again!');
-      }
+    } else {
+      showFormState('error', btn, txt, ico, data.error || 'Failed to send. Try again!');
       setTimeout(() => resetFormState(btn, txt, ico), 4000);
     }
+  } catch (err) {
+    console.error('Contact form error:', err);
+    showFormState('error', btn, txt, ico, 'Network error. Please try again!');
+    setTimeout(() => resetFormState(btn, txt, ico), 4000);
   }
 };
 
