@@ -650,16 +650,23 @@
     const username = document.getElementById('loginUser').value.trim();
     const password = document.getElementById('loginPass').value;
     const errEl = document.getElementById('loginError');
+    const btn = document.querySelector('.login-btn');
     errEl.style.display = 'none';
 
     if (!username || !password) { errEl.textContent = 'Please enter username and password.'; errEl.style.display = 'block'; return; }
 
+    btn.textContent = 'Signing in…'; btn.disabled = true;
+
     try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 12000); // 12s timeout
       const r = await fetch(`${API}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ username, password }),
+        signal: controller.signal
       });
+      clearTimeout(timeout);
       const d = await r.json();
       if (d.success) {
         TOKEN = d.token;
@@ -671,8 +678,14 @@
         errEl.style.display = 'block';
       }
     } catch (e) {
-      errEl.textContent = 'Cannot connect to server. Is the backend running?';
+      if (e.name === 'AbortError') {
+        errEl.innerHTML = '⏱ Request timed out. Check your internet and <a href="" style="color:var(--gold)" onclick="location.reload()">retry</a>.';
+      } else {
+        errEl.innerHTML = '⚠️ Cannot reach server. Check your internet connection and <a href="" style="color:var(--gold)" onclick="location.reload()">retry</a>.';
+      }
       errEl.style.display = 'block';
+    } finally {
+      btn.textContent = 'Sign In →'; btn.disabled = false;
     }
   }
 
