@@ -475,11 +475,11 @@ window.handleFormSubmit = async (e) => {
 
   // ── Collect form data ──
   const templateParams = {
-    from_name:    document.getElementById('contactName').value.trim(),
-    from_email:   document.getElementById('contactEmail').value.trim(),
-    service_type: document.getElementById('contactService').value || 'Not specified',
-    budget:       document.getElementById('contactBudget').value  || 'Not specified',
-    message:      document.getElementById('contactMessage').value.trim()
+    from_name:  document.getElementById('contactName').value.trim(),
+    from_email: document.getElementById('contactEmail').value.trim(),
+    service:    document.getElementById('contactService').value || 'Not specified',
+    budget:     document.getElementById('contactBudget').value  || 'Not specified',
+    message:    document.getElementById('contactMessage').value.trim()
   };
 
   try {
