@@ -476,12 +476,35 @@ window.handleFormSubmit = async (e) => {
     message: document.getElementById('contactMessage').value.trim()
   };
 
+  const sendRequest = async () => {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
+    try {
+      const res = await fetch(`${BACKEND_API}/api/contact`, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload),
+        signal:  controller.signal
+      });
+      clearTimeout(timeout);
+      return res;
+    } catch (err) {
+      clearTimeout(timeout);
+      throw err;
+    }
+  };
+
   try {
-    const res  = await fetch(`${BACKEND_API}/api/contact`, {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify(payload)
-    });
+    let res;
+    try {
+      res = await sendRequest();
+    } catch (firstErr) {
+      // Auto-retry once after 3 seconds (backend may have been sleeping)
+      txt.textContent = 'Retrying...';
+      await new Promise(r => setTimeout(r, 3000));
+      res = await sendRequest();
+    }
+
     const data = await res.json();
 
     if (res.ok && data.success) {
@@ -494,10 +517,11 @@ window.handleFormSubmit = async (e) => {
     }
   } catch (err) {
     console.error('Contact form error:', err);
-    showFormState('error', btn, txt, ico, 'Network error. Please try again!');
-    setTimeout(() => resetFormState(btn, txt, ico), 4000);
+    showFormState('error', btn, txt, ico, 'Network error. Check your connection & try again.');
+    setTimeout(() => resetFormState(btn, txt, ico), 5000);
   }
 };
+
 
 function showFormState(type, btn, txt, ico, message) {
   btn.disabled      = true;
@@ -548,6 +572,15 @@ window.addEventListener('DOMContentLoaded', () => {
   createHeroParticles();
 });
 
+/* ══════════════════════════════════
+   13. KEEP-ALIVE PING
+   Pings backend every 10 min so Railway doesn't sleep
+══════════════════════════════════ */
+(function keepAlive() {
+  const ping = () => fetch(BACKEND_API + '/api/contact', { method: 'OPTIONS' }).catch(() => {});
+  ping(); // ping on page load
+  setInterval(ping, 10 * 60 * 1000); // then every 10 minutes
+})();
 
 console.log('%c pix3lhaze Portfolio', 'font-size:24px; font-weight:900; color:#D4A017; background:#040404; padding:8px 16px;');
 console.log('%c Himanshu Raj | @pix3lhaze — Video Editor · Cinematographer · Photographer', 'font-size:12px; color:#888;');
