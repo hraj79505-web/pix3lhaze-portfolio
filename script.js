@@ -448,10 +448,16 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') window.close
 })();
 
 /* ══════════════════════════════════
-   10. CONTACT FORM — Backend API
+   10. CONTACT FORM — EmailJS
 ══════════════════════════════════ */
 
-const BACKEND_API = 'https://pix3lhaze-backend-production.up.railway.app';
+// EmailJS credentials
+const EMAILJS_SERVICE_ID  = 'service_sxvrwj6';
+const EMAILJS_TEMPLATE_ID = 'template_jqujmll';
+const EMAILJS_PUBLIC_KEY  = '5ipBI6nAKDHFqSDGo';
+
+// Init EmailJS
+emailjs.init(EMAILJS_PUBLIC_KEY);
 
 window.handleFormSubmit = async (e) => {
   e.preventDefault();
@@ -468,60 +474,25 @@ window.handleFormSubmit = async (e) => {
   btn.style.opacity = '0.8';
 
   // ── Collect form data ──
-  const payload = {
-    name:    document.getElementById('contactName').value.trim(),
-    email:   document.getElementById('contactEmail').value.trim(),
-    service: document.getElementById('contactService').value  || '',
-    budget:  document.getElementById('contactBudget').value   || '',
-    message: document.getElementById('contactMessage').value.trim()
-  };
-
-  const sendRequest = async () => {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 15000);
-    try {
-      const res = await fetch(`${BACKEND_API}/api/contact`, {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify(payload),
-        signal:  controller.signal
-      });
-      clearTimeout(timeout);
-      return res;
-    } catch (err) {
-      clearTimeout(timeout);
-      throw err;
-    }
+  const templateParams = {
+    from_name:    document.getElementById('contactName').value.trim(),
+    from_email:   document.getElementById('contactEmail').value.trim(),
+    service_type: document.getElementById('contactService').value || 'Not specified',
+    budget:       document.getElementById('contactBudget').value  || 'Not specified',
+    message:      document.getElementById('contactMessage').value.trim()
   };
 
   try {
-    let res;
-    try {
-      res = await sendRequest();
-    } catch (firstErr) {
-      // Auto-retry once after 3 seconds (backend may have been sleeping)
-      txt.textContent = 'Retrying...';
-      await new Promise(r => setTimeout(r, 3000));
-      res = await sendRequest();
-    }
-
-    const data = await res.json();
-
-    if (res.ok && data.success) {
-      showFormState('success', btn, txt, ico, 'Message Sent! ✓');
-      form.reset();
-      setTimeout(() => resetFormState(btn, txt, ico), 4500);
-    } else {
-      showFormState('error', btn, txt, ico, data.error || 'Failed to send. Try again!');
-      setTimeout(() => resetFormState(btn, txt, ico), 4000);
-    }
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+    showFormState('success', btn, txt, ico, 'Message Sent! ✓');
+    form.reset();
+    setTimeout(() => resetFormState(btn, txt, ico), 4500);
   } catch (err) {
-    console.error('Contact form error:', err);
-    showFormState('error', btn, txt, ico, 'Network error. Check your connection & try again.');
-    setTimeout(() => resetFormState(btn, txt, ico), 5000);
+    console.error('EmailJS error:', err);
+    showFormState('error', btn, txt, ico, 'Failed to send. Please try again!');
+    setTimeout(() => resetFormState(btn, txt, ico), 4000);
   }
 };
-
 
 function showFormState(type, btn, txt, ico, message) {
   btn.disabled      = true;
@@ -548,8 +519,6 @@ function resetFormState(btn, txt, ico) {
   btn.style.opacity    = '1';
 }
 
-
-
 /* ══════════════════════════════════
    11. SMOOTH SCROLL
 ══════════════════════════════════ */
@@ -571,16 +540,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 window.addEventListener('DOMContentLoaded', () => {
   createHeroParticles();
 });
-
-/* ══════════════════════════════════
-   13. KEEP-ALIVE PING
-   Pings backend every 10 min so Railway doesn't sleep
-══════════════════════════════════ */
-(function keepAlive() {
-  const ping = () => fetch(BACKEND_API + '/api/contact', { method: 'OPTIONS' }).catch(() => {});
-  ping(); // ping on page load
-  setInterval(ping, 10 * 60 * 1000); // then every 10 minutes
-})();
 
 console.log('%c pix3lhaze Portfolio', 'font-size:24px; font-weight:900; color:#D4A017; background:#040404; padding:8px 16px;');
 console.log('%c Himanshu Raj | @pix3lhaze — Video Editor · Cinematographer · Photographer', 'font-size:12px; color:#888;');
