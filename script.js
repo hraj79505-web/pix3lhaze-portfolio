@@ -483,7 +483,7 @@ window.handleFormSubmit = async (e) => {
   };
 
   try {
-    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+    await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form, EMAILJS_PUBLIC_KEY);
     showFormState('success', btn, txt, ico, 'Message Sent! ✓');
     form.reset();
     setTimeout(() => resetFormState(btn, txt, ico), 4500);
