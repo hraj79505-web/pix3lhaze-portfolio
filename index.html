@@ -3,223 +3,829 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pix3lhaze &mdash; Himanshu Raj</title>
-  <meta name="description" content="Visual storyteller from India. Video editing, cinematography, color grading, photography and reels." />
-  <meta property="og:title" content="pix3lhaze &mdash; Himanshu Raj" />
+  <title>Himanshu Raj | pix3lhaze — Video Editor · Cinematographer · Photographer · Web Developer</title>
+  <meta name="description" content="Himanshu Raj (pix3lhaze) — Professional Video Editor, Cinematographer, Photographer & Web Developer. Crafting cinematic stories through lens, light and code." />
+  <meta name="keywords" content="video editor, cinematographer, photographer, web developer, pix3lhaze, Himanshu Raj, Adobe Premiere Pro, DaVinci Resolve, After Effects, HTML, CSS, JavaScript" />
+  <meta property="og:title" content="Himanshu Raj | pix3lhaze — Video Editor · Cinematographer · Photographer · Web Developer" />
+  <meta property="og:description" content="Professional Video Editor · Cinematographer · Photographer. Crafting visual masterpieces for brands, creators, and political leaders." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.pix3lhaze.in/" />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="Himanshu Raj" />
-  <meta name="theme-color" content="#080808" />
+  <meta property="og:site_name" content="pix3lhaze — Himanshu Raj" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Himanshu Raj | pix3lhaze" />
+  <meta name="twitter:description" content="Professional Video Editor · Cinematographer · Photographer" />
+
   <link rel="canonical" href="https://www.pix3lhaze.in/" />
+
+  <!-- Favicon — Google Search requires PNG, min 48x48 -->
   <link rel="icon" type="image/png" href="favicon.png" sizes="512x512" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="shortcut icon" href="favicon.png" />
   <link rel="apple-touch-icon" sizes="512x512" href="favicon.png" />
+
+
+
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Himanshu Raj",
+    "alternateName": "pix3lhaze",
+    "url": "https://www.pix3lhaze.in",
+    "sameAs": [
+      "https://www.instagram.com/pix3lhaze",
+      "https://www.linkedin.com/in/himanshu-raj-pix3l/"
+    ],
+    "jobTitle": "Video Editor, Cinematographer & Web Developer",
+    "knowsAbout": ["Video Editing", "Cinematography", "Color Grading", "Photography", "Web Development", "Adobe Premiere Pro", "DaVinci Resolve", "HTML", "CSS", "JavaScript"]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="sitemap" type="application/xml" href="https://www.pix3lhaze.in/sitemap.xml" />
   <meta name="google-site-verification" content="googlea2464adeb76b1ebe" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Himanshu Raj" />
+  <meta name="theme-color" content="#040404" />
 </head>
 <body>
-<div class="loader" id="loader">
-  <div class="loader-inner">
-    <div class="loader-logo">pix3l<span>haze</span></div>
-    <div class="loader-num" id="loaderNum">000</div>
-  </div>
-  <div class="loader-bar" id="loaderBar"></div>
-</div>
-<div class="cursor-dot" id="cursorDot"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-<nav class="nav" id="nav">
-  <a href="/" class="nav-logo">pix3l<span>haze</span></a>
-  <button class="menu-trigger" id="menuTrigger" aria-label="menu">
-    <span class="menu-label">menu</span>
-    <div class="menu-dots"><span></span><span></span><span></span><span></span></div>
-  </button>
-</nav>
-<div class="menu-overlay" id="menuOverlay">
-  <div class="menu-overlay-top">
-    <a href="/" class="nav-logo">pix3l<span>haze</span></a>
-    <button class="menu-close" id="menuClose"><span>close</span><div class="menu-dots"><span></span><span></span><span></span><span></span></div></button>
-  </div>
-  <div class="menu-overlay-body">
-    <nav class="menu-nav">
-      <a href="#works" class="menu-nav-link" data-menu-link><span class="menu-nav-num">01</span><span class="menu-nav-text">works</span></a>
-      <a href="#about" class="menu-nav-link" data-menu-link><span class="menu-nav-num">02</span><span class="menu-nav-text">studio</span></a>
-      <a href="#contact" class="menu-nav-link" data-menu-link><span class="menu-nav-num">03</span><span class="menu-nav-text">contact</span></a>
-    </nav>
-    <div class="menu-overlay-footer">
-      <a href="https://www.instagram.com/pix3lhaze" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.linkedin.com/in/himanshu-raj-pix3l/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:hraj79505@gmail.com">Email</a>
+
+  <!-- ─────────────────── CUSTOM CURSOR ─────────────────── -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ─────────────────── LOADER ─────────────────── -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-logo">
+      <span class="loader-pixel">pix3l</span><span class="loader-haze">haze</span>
     </div>
-  </div>
-</div>
-<section class="hero" id="hero">
-  <video class="hero-video" autoplay muted loop playsinline><source src="videos/cine1.mp4" type="video/mp4" /></video>
-  <div class="hero-overlay"></div>
-  <div class="hero-inner">
-    <div class="hero-tagline">
-      <div class="reveal-wrap"><p class="hero-tag-line">Not a filter. A frame.</p></div>
-      <div class="reveal-wrap"><p class="hero-tag-line">Because every frame is a story.</p></div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar" id="loaderBar"></div>
     </div>
-    <div class="reveal-wrap"><a href="#works" class="btn-hero"><span class="btn-hero-text">view work</span><span class="btn-hero-arrow">&#8594;</span></a></div>
+    <p class="loader-tagline">Loading cinematic experience...</p>
   </div>
-  <div class="hero-brand-wrap"><div class="hero-brand" id="heroBrand">pix3lhaze</div></div>
-  <div class="hero-bottom">
-    <div class="reveal-wrap"><span class="hero-location">Visual creator from India</span></div>
-    <div class="hero-socials reveal-wrap">
-      <a href="https://www.instagram.com/pix3lhaze" target="_blank" rel="noopener">Insta</a>
-      <span class="hero-social-sep"> / </span>
-      <a href="https://www.linkedin.com/in/himanshu-raj-pix3l/" target="_blank" rel="noopener">LinkedIn</a>
+
+  <!-- ─────────────────── NAVBAR ─────────────────── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-pixel">pix3l</span><span class="logo-haze">haze</span>
     </div>
-  </div>
-</section>
-<section class="intro">
-  <div class="container">
-    <div class="space-xl"></div>
-    <h2 class="intro-heading" data-reveal>Most creators produce content.<br />I prefer stories.</h2>
-    <div class="space-lg"></div>
-    <div class="intro-layout">
-      <div class="intro-video-wrap"><video autoplay muted loop playsinline class="intro-video"><source src="videos/cine1.mp4" type="video/mp4" /></video></div>
-      <div class="intro-text">
-        <p class="intro-label" data-reveal>( The Perspective )</p>
-        <p class="intro-body" data-reveal>Every shot is intentional. Every cut is deliberate. Every colour is chosen. This is not content creation — this is visual storytelling.</p>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+      <li><a href="#services" class="nav-link">Services</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="https://www.instagram.com/pix3lhaze" target="_blank" class="nav-insta">
+        <i class="fab fa-instagram"></i>
+        <span>@pix3lhaze</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─────────────────── HERO ─────────────────── -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-overlay"></div>
+      <div class="film-grain"></div>
+    </div>
+    <div class="particles-container" id="heroParticles"></div>
+    <div class="film-strip film-strip-left">
+      <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+      <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+      <div class="film-hole"></div><div class="film-hole"></div>
+    </div>
+    <div class="film-strip film-strip-right">
+      <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+      <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+      <div class="film-hole"></div><div class="film-hole"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Available for Projects</span>
       </div>
-    </div>
-    <div class="space-xl"></div>
-  </div>
-</section>
-<section id="works" class="works">
-  <div class="container">
-    <div class="works-word-row">
-      <div class="works-letters">
-        <div class="wl-block"><div class="wl-inner">w</div></div>
-        <div class="wl-block"><div class="wl-inner">o</div></div>
-        <div class="wl-block"><div class="wl-inner">r</div></div>
-        <div class="wl-block"><div class="wl-inner">k</div></div>
-        <div class="wl-block"><div class="wl-inner">s</div></div>
-      </div>
-    </div>
-    <div class="space-lg"></div>
-    <h2 class="works-heading" data-reveal>Good work speaks.<br />Great work stays.</h2>
-    <div class="space-xl"></div>
-    <div class="works-list">
-      <div class="work-item" data-video="videos/cine1.mp4">
-        <h2 class="work-title" data-reveal>Cinematography</h2>
-        <p class="work-sub" data-reveal>Where light meets motion.</p>
-        <div class="work-link-wrap">
-          <div class="work-media"><video autoplay muted loop playsinline><source src="videos/cine1.mp4" type="video/mp4" /></video></div>
-          <div class="work-cursor-label"><span>play</span></div>
+      <div class="hero-title-wrap">
+        <h1 class="hero-name">
+          <span class="name-line">Himanshu</span>
+          <span class="name-line accent-gold">Raj</span>
+        </h1>
+        <div class="hero-handle">
+          <span class="at-sign">@</span>pix3lhaze
         </div>
       </div>
-      <div class="work-item work-no-media">
-        <h2 class="work-title" data-reveal>Video Editing</h2>
-        <p class="work-sub" data-reveal>Story in every cut.</p>
-        <div class="work-link-wrap"><div class="work-media work-placeholder-media"><span>Coming Soon</span></div><div class="work-cursor-label"><span>soon</span></div></div>
+      <div class="hero-roles">
+        <span class="role-tag">Video Editor</span>
+        <span class="role-divider">·</span>
+        <span class="role-tag">Cinematographer</span>
+        <span class="role-divider">·</span>
+        <span class="role-tag">Photographer</span>
+        <span class="role-divider">·</span>
+        <span class="role-tag">Web Developer</span>
       </div>
-      <div class="work-item work-no-media">
-        <h2 class="work-title" data-reveal>Color Grading</h2>
-        <p class="work-sub" data-reveal>Colour as emotion.</p>
-        <div class="work-link-wrap"><div class="work-media work-placeholder-media"><span>Coming Soon</span></div><div class="work-cursor-label"><span>soon</span></div></div>
+      <p class="hero-tagline">
+        Turning moments into <em>masterpieces</em>.<br/>
+        Every frame tells a story.
+      </p>
+      <div class="hero-cta">
+        <a href="#portfolio" class="btn-primary">
+          <span>View My Work</span>
+          <i class="fas fa-play"></i>
+        </a>
+        <a href="#contact" class="btn-secondary">
+          <span>Let's Collaborate</span>
+        </a>
       </div>
-      <div class="work-item work-no-media">
-        <h2 class="work-title" data-reveal>Photography</h2>
-        <p class="work-sub" data-reveal>Moments made permanent.</p>
-        <div class="work-link-wrap"><div class="work-media work-placeholder-media"><span>Coming Soon</span></div><div class="work-cursor-label"><span>soon</span></div></div>
-      </div>
-      <div class="work-item work-no-media">
-        <h2 class="work-title" data-reveal>Reels &amp; Shorts</h2>
-        <p class="work-sub" data-reveal>Vertical. Fast. Addictive.</p>
-        <div class="work-link-wrap"><div class="work-media work-placeholder-media"><span>Coming Soon</span></div><div class="work-cursor-label"><span>soon</span></div></div>
-      </div>
-    </div>
-    <div class="space-lg"></div>
-    <div class="works-footer-row"><span>&copy; 24 &middot; 26</span><span>(05 categories)</span></div>
-    <div class="space-xl"></div>
-  </div>
-</section>
-<section id="about" class="studio">
-  <div class="container">
-    <div class="space-xl"></div>
-    <div class="studio-top">
-      <p class="studio-label" data-reveal>( The Creator )</p>
-      <p class="studio-bio" data-reveal>We called it pix3lhaze because it started as a paradox —<br />a single frame open enough to become anything:<br />a film, a reel, a photograph, a website...</p>
-    </div>
-    <div class="space-xl"></div>
-    <h2 class="studio-headline" data-reveal>Forms follow<br />vision.</h2>
-    <div class="space-xl"></div>
-    <div class="studio-services-grid">
-      <div class="studio-services-left"><p class="studio-services-label" data-reveal>I work on :</p></div>
-      <div class="studio-services-right">
-        <div class="services-list">
-          <div class="service-row" data-reveal><div class="service-dot"></div><span>Video Editing</span></div>
-          <div class="service-row" data-reveal><div class="service-dot"></div><span>Color Grading</span></div>
-          <div class="service-row" data-reveal><div class="service-dot"></div><span>Cinematography</span></div>
-          <div class="service-row" data-reveal><div class="service-dot"></div><span>Photography</span></div>
-          <div class="service-row" data-reveal><div class="service-dot"></div><span>Reels / Shorts</span></div>
-          <div class="service-row" data-reveal><div class="service-dot"></div><span>Web Development</span></div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num" data-count="150">0</span><span class="stat-plus">+</span>
+          <p>Projects Done</p>
         </div>
-        <p class="studio-tagline" data-reveal>Vision is where creativity<br />meets execution.</p>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-count="5">0</span><span class="stat-plus">+</span>
+          <p>Years Experience</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-count="80">0</span><span class="stat-plus">+</span>
+          <p>Happy Clients</p>
+        </div>
       </div>
     </div>
-    <div class="space-xl"></div>
-  </div>
-</section>
-<section id="contact" class="contact-section">
-  <div class="container">
-    <div class="space-xl"></div>
-    <h2 class="contact-heading" data-reveal>Let&rsquo;s create<br />something<br />remarkable.</h2>
-    <div class="space-lg"></div>
-    <div class="contact-grid">
-      <div class="contact-info">
-        <div class="contact-info-row" data-reveal><span class="ci-label">Email</span><a href="mailto:hraj79505@gmail.com" class="ci-val">hraj79505@gmail.com</a></div>
-        <div class="contact-info-row" data-reveal><span class="ci-label">Instagram</span><a href="https://www.instagram.com/pix3lhaze" target="_blank" rel="noopener" class="ci-val">@pix3lhaze</a></div>
-        <div class="contact-info-row" data-reveal><span class="ci-label">LinkedIn</span><a href="https://www.linkedin.com/in/himanshu-raj-pix3l/" target="_blank" rel="noopener" class="ci-val">himanshu-raj-pix3l</a></div>
-        <div class="contact-info-row" data-reveal><span class="ci-label">Based in</span><span class="ci-val">India</span></div>
+  </section>
+
+  <!-- ─────────────────── ABOUT ─────────────────── -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-label">
+        <span class="label-line"></span><span>About Me</span><span class="label-line"></span>
       </div>
-      <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
-        <div class="form-row-2">
-          <div class="form-field"><label for="contactName">Name</label><input type="text" id="contactName" name="from_name" placeholder="Your name" required /></div>
-          <div class="form-field"><label for="contactEmail">Email</label><input type="email" id="contactEmail" name="from_email" placeholder="you@example.com" required /></div>
-        </div>
-        <div class="form-row-2">
-          <div class="form-field"><label for="contactService">Service</label>
-            <select id="contactService" name="service"><option value="">Select a service...</option><option value="Video Editing">Video Editing</option><option value="Color Grading">Color Grading</option><option value="Cinematography">Cinematography</option><option value="Photography">Photography</option><option value="Reels / Shorts">Reels / Shorts</option><option value="Web Development">Web Development</option><option value="Other">Other</option></select>
+      <div class="about-grid">
+        <div class="about-visual" data-aos="fade-right">
+          <div class="about-img-frame">
+            <div class="about-img-glow"></div>
+            <div class="about-img-inner">
+              <img src="images/himanshu_about.png" alt="Himanshu Raj (@pix3lhaze)" class="about-profile-img" />
+            </div>
+            <div class="about-img-badge">
+              <i class="fas fa-camera"></i>
+              <span>Since 2019</span>
+            </div>
           </div>
-          <div class="form-field"><label for="contactBudget">Budget</label>
-            <select id="contactBudget" name="budget"><option value="">Select budget...</option><option value="Under Rs.5000">Under Rs.5,000</option><option value="Rs.5000-15000">Rs.5,000 - Rs.15,000</option><option value="Rs.15000-50000">Rs.15,000 - Rs.50,000</option><option value="Rs.50000+">Rs.50,000+</option></select>
+          <div class="about-social-bar">
+            <a href="https://www.instagram.com/pix3lhaze" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/himanshu-raj-pix3l/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </div>
-        <div class="form-field"><label for="contactMessage">Message</label><textarea id="contactMessage" name="message" rows="5" placeholder="Tell me about your project, vision, timeline..." required></textarea></div>
-        <button type="submit" id="submitBtn" class="btn-submit"><span id="submitText">Send Message</span><i id="submitIcon" class="fas fa-paper-plane"></i></button>
-      </form>
+        <div class="about-text" data-aos="fade-left">
+          <h2 class="section-title">
+            The Vision Behind <br/><span class="gradient-text">Every Frame</span>
+          </h2>
+          <p class="about-desc">
+            Hey! I’m <strong>Himanshu Raj</strong>, the creative mind behind <strong>@pix3lhaze</strong> — a video editor, cinematographer, photographer, and web developer passionate about turning bold ideas into immersive digital and visual experiences.
+          </p>
+          <p class="about-desc">
+            I don’t just create visuals — I craft stories that evoke deep emotion. Through cinematic direction, precision editing, refined color grading, and modern web development, I produce work that audiences don’t just watch — <em>they feel and interact with</em>.
+          </p>
+          <p class="about-desc">
+            Every project is driven by relentless creativity, technical excellence, and an uncompromising attention to detail, ensuring every single frame and line of code leaves a lasting impression.
+          </p>
+          <p class="about-welcome-text">
+            Welcome to my world. Welcome to <span class="accent-gold">pix3lhaze</span>.
+          </p>
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <i class="fas fa-film"></i>
+              <div><h4>Video Editor</h4><p>Precision cuts, color grading, visual storytelling</p></div>
+            </div>
+            <div class="highlight-item">
+              <i class="fas fa-video"></i>
+              <div><h4>Cinematographer</h4><p>Cinematic composition, lighting, storytelling</p></div>
+            </div>
+            <div class="highlight-item">
+              <i class="fas fa-camera-retro"></i>
+              <div><h4>Photographer</h4><p>Portrait, commercial, landscape photography</p></div>
+            </div>
+            <div class="highlight-item">
+              <i class="fas fa-code"></i>
+              <div><h4>Web Developer</h4><p>Modern, responsive, high-performance web development</p></div>
+            </div>
+          </div>
+          <a href="#contact" class="btn-primary">
+            <span>Work With Me</span><i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="space-xl"></div>
-  </div>
-</section>
-<footer id="footer" class="footer">
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-logo">pix3l<span>haze</span></div>
+  </section>
+
+  <!-- ─────────────────── VIDEO TESTIMONIAL ─────────────────── -->
+  <section class="testimonials" id="testimonials">
+    <div class="testi-bg-glow"></div>
+    <div class="container">
+
+      <div class="section-label">
+        <span class="label-line"></span><span>Client Love</span><span class="label-line"></span>
+      </div>
+      <h2 class="section-title center-text" data-aos="fade-up">
+        Hear What My Client <span class="gradient-text">Has To Say</span>
+      </h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="80">
+        Real words, real emotion — straight from someone who experienced the work
+      </p>
+
+      <!-- ── Single video hero ── -->
+      <div class="vtesti-hero" data-aos="fade-up" data-aos-delay="150">
+
+        <!-- LEFT — Video player -->
+        <div class="vtesti-hero-video">
+          <div class="vtesti-hero-glow"></div>
+          <div class="vtesti-hero-frame">
+            <!--
+              ★ REPLACE THE VIDEO SOURCE BELOW ★
+              Put your video file inside the  videos/  folder, then update the src attribute.
+              Example:  src="videos/testimonial.mp4"
+              Supported formats: .mp4  .webm  .mov
+            -->
+            <video
+              id="testiVideo"
+              src="videos/testimonial.mp4"
+              controls
+              playsinline
+              poster=""
+              preload="metadata">
+              Your browser does not support HTML5 video.
+            </video>
+            <!-- Decorative corner accents -->
+            <span class="vcorner vcorner-tl"></span>
+            <span class="vcorner vcorner-tr"></span>
+            <span class="vcorner vcorner-bl"></span>
+            <span class="vcorner vcorner-br"></span>
+          </div>
+        </div>
+
+        <!-- RIGHT — Client quote & info -->
+        <div class="vtesti-hero-content">
+          <div class="vtesti-hero-badge">
+            <i class="fas fa-video"></i>
+            <span>Featured Testimonial</span>
+          </div>
+
+          <div class="vtesti-hero-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+
+          <blockquote class="vtesti-hero-quote">
+            <i class="fas fa-quote-left vtesti-ql"></i>
+            "Working with Himanshu was an incredible experience. His visual storytelling, campaign edits, and cinematic vision gave our message powerful impact and reach. Highly professional!"
+          </blockquote>
+
+          <div class="vtesti-hero-author">
+            <div class="vtesti-hero-av" style="--av-color:#D4A017;">RS</div>
+            <div class="vtesti-hero-meta">
+              <h4>Ranveer Singh</h4>
+              <span>Politician & Leader</span>
+            </div>
+          </div>
+
+          <div class="vtesti-hero-cta">
+            <a href="#contact" class="btn-primary">
+              <span>Work With Me</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+      </div><!-- .vtesti-hero -->
+
+      <!-- ── Trust strip ── -->
+      <div class="testi-trust-strip" data-aos="fade-up">
+        <p class="trust-label">Trusted by creators &amp; brands across India</p>
+        <div class="trust-logos">
+          <div class="trust-logo-item"><i class="fab fa-youtube"></i><span>YouTube</span></div>
+          <div class="trust-logo-item"><i class="fab fa-instagram"></i><span>Instagram</span></div>
+          <div class="trust-logo-item"><i class="fab fa-spotify"></i><span>Spotify</span></div>
+          <div class="trust-logo-item"><i class="fab fa-linkedin-in"></i><span>LinkedIn</span></div>
+          <div class="trust-logo-item"><i class="fas fa-film"></i><span>Short Films</span></div>
+          <div class="trust-logo-item"><i class="fas fa-store"></i><span>Brands</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─────────────────── SKILLS ─────────────────── -->
+  <section class="skills" id="skills">
+    <div class="skills-bg"></div>
+    <div class="container">
+      <div class="section-label">
+        <span class="label-line"></span><span>My Toolkit</span><span class="label-line"></span>
+      </div>
+      <h2 class="section-title center-text">Software I <span class="gradient-text">Master</span></h2>
+      <p class="section-subtitle">Industry-standard tools I use daily to craft visual masterpieces</p>
+      <div class="skills-grid">
+        <div class="skill-category" data-aos="fade-up" data-aos-delay="0">
+          <div class="skill-category-icon"><i class="fas fa-cut"></i></div>
+          <h3>Video Editing</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-icon">
+                <img src="images/logos/premiere.svg" alt="Adobe Premiere Pro Logo" class="software-logo-img" />
+              </div>
+              <div class="skill-info">
+                <div class="skill-name-row"><span>Adobe Premiere Pro</span><span class="skill-pct">97%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="97"></div></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">
+                <img src="images/logos/davinci.svg" alt="DaVinci Resolve Logo" class="software-logo-img" />
+              </div>
+              <div class="skill-info">
+                <div class="skill-name-row"><span>DaVinci Resolve</span><span class="skill-pct">93%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="93"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category" data-aos="fade-up" data-aos-delay="150">
+          <div class="skill-category-icon"><i class="fas fa-image"></i></div>
+          <h3>Photo Editing</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-icon">
+                <img src="images/logos/photoshop.svg" alt="Adobe Photoshop Logo" class="software-logo-img" />
+              </div>
+              <div class="skill-info">
+                <div class="skill-name-row"><span>Adobe Photoshop</span><span class="skill-pct">88%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">
+                <img src="images/logos/lightroom.svg" alt="Adobe Lightroom Logo" class="software-logo-img" />
+              </div>
+              <div class="skill-info">
+                <div class="skill-name-row"><span>Adobe Lightroom</span><span class="skill-pct">95%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+          <div class="skill-category-icon"><i class="fas fa-clapperboard"></i></div>
+          <h3>Cinematography</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-icon">
+                <img src="images/logos/aftereffects.svg" alt="Adobe After Effects Logo" class="software-logo-img" />
+              </div>
+              <div class="skill-info">
+                <div class="skill-name-row"><span>After Effects</span><span class="skill-pct">90%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">
+                <img src="images/logos/davinci.svg" alt="Color Grading & DaVinci Logo" class="software-logo-img" />
+              </div>
+              <div class="skill-info">
+                <div class="skill-name-row"><span>Color Grading & Lensing</span><span class="skill-pct">96%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="96"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category" data-aos="fade-up" data-aos-delay="450">
+          <div class="skill-category-icon"><i class="fas fa-code"></i></div>
+          <h3>Web Development</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-icon">
+                <img src="images/logos/html5.svg" alt="HTML5 & Web Dev Logo" class="software-logo-img" />
+              </div>
+              <div class="skill-info">
+                <div class="skill-name-row"><span>HTML5, CSS3 & JS</span><span class="skill-pct">94%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="94"></div></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">
+                <img src="images/logos/canva.svg" alt="Canva Logo" class="software-logo-img" />
+              </div>
+              <div class="skill-info">
+                <div class="skill-name-row"><span>Canva & Design</span><span class="skill-pct">92%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="software-belt">
+        <div class="belt-track">
+          <div class="belt-item"><span class="belt-logo"><img src="images/logos/premiere.svg" alt="Premiere Pro" class="software-logo-img" /></span><p>Premiere</p></div>
+          <div class="belt-item"><span class="belt-logo"><img src="images/logos/aftereffects.svg" alt="After Effects" class="software-logo-img" /></span><p>After Effects</p></div>
+          <div class="belt-item"><span class="belt-logo"><img src="images/logos/photoshop.svg" alt="Photoshop" class="software-logo-img" /></span><p>Photoshop</p></div>
+          <div class="belt-item"><span class="belt-logo"><img src="images/logos/lightroom.svg" alt="Lightroom" class="software-logo-img" /></span><p>Lightroom</p></div>
+          <div class="belt-item"><span class="belt-logo"><img src="images/logos/davinci.svg" alt="DaVinci Resolve" class="software-logo-img" /></span><p>DaVinci</p></div>
+          <div class="belt-item"><span class="belt-logo"><img src="images/logos/capcut.svg" alt="CapCut" class="software-logo-img" /></span><p>CapCut</p></div>
+          <div class="belt-item"><span class="belt-logo"><img src="images/logos/canva.svg" alt="Canva" class="software-logo-img" /></span><p>Canva</p></div>
+          <div class="belt-item"><span class="belt-logo"><img src="images/logos/html5.svg" alt="HTML5" class="software-logo-img" /></span><p>HTML5</p></div>
+          <div class="belt-item"><span class="belt-logo"><img src="images/logos/css3.svg" alt="CSS3" class="software-logo-img" /></span><p>CSS3</p></div>
+          <div class="belt-item"><span class="belt-logo"><img src="images/logos/javascript.svg" alt="JavaScript" class="software-logo-img" /></span><p>JS</p></div>
+
+          <!-- REPEAT FOR INFINITE SCROLL -->
+          <div class="belt-item"><span class="belt-logo"><img src="images/logos/premiere.svg" alt="Premiere Pro" class="software-logo-img" /></span><p>Premiere</p></div>
+          <div class="belt-item"><span class="belt-logo"><img src="images/logos/aftereffects.svg" alt="After Effects" class="software-logo-img" /></span><p>After Effects</p></div>
+          <div class="belt-item"><span class="belt-logo"><img src="images/logos/photoshop.svg" alt="Photoshop" class="software-logo-img" /></span><p>Photoshop</p></div>
+          <div class="belt-item"><span class="belt-logo"><img src="images/logos/lightroom.svg" alt="Lightroom" class="software-logo-img" /></span><p>Lightroom</p></div>
+          <div class="belt-item"><span class="belt-logo"><img src="images/logos/davinci.svg" alt="DaVinci Resolve" class="software-logo-img" /></span><p>DaVinci</p></div>
+          <div class="belt-item"><span class="belt-logo"><img src="images/logos/capcut.svg" alt="CapCut" class="software-logo-img" /></span><p>CapCut</p></div>
+          <div class="belt-item"><span class="belt-logo"><img src="images/logos/canva.svg" alt="Canva" class="software-logo-img" /></span><p>Canva</p></div>
+          <div class="belt-item"><span class="belt-logo"><img src="images/logos/html5.svg" alt="HTML5" class="software-logo-img" /></span><p>HTML5</p></div>
+          <div class="belt-item"><span class="belt-logo"><img src="images/logos/css3.svg" alt="CSS3" class="software-logo-img" /></span><p>CSS3</p></div>
+          <div class="belt-item"><span class="belt-logo"><img src="images/logos/javascript.svg" alt="JavaScript" class="software-logo-img" /></span><p>JS</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────── PORTFOLIO ─────────────────── -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="section-label">
+        <span class="label-line"></span><span>My Work</span><span class="label-line"></span>
+      </div>
+      <h2 class="section-title center-text">Selected <span class="gradient-text">Projects</span></h2>
+      <p class="section-subtitle">A curated selection of my finest visual work</p>
+      <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">All Works</button>
+        <button class="filter-btn" data-filter="video">Video Editing</button>
+        <button class="filter-btn" data-filter="cine">Cinematography</button>
+        <button class="filter-btn" data-filter="photo">Photography</button>
+        <button class="filter-btn" data-filter="web">Web Development</button>
+      </div>
+      <div class="portfolio-grid" id="portfolioGrid">
+        <!-- Row 1: Cinematography Reel #1 (Wide 2-col) + Video Edit #1 (1-col) -->
+        <div class="portfolio-card wide-card" data-category="cine" data-aos="fade-up">
+          <div class="card-media">
+            <img src="videos/thumb_cine1.jpg" alt="Cinematography Reel #1 — Shot & Directed by Himanshu Raj" class="card-thumb-img" />
+            <div class="card-overlay">
+              <div class="card-overlay-content">
+                <span class="card-type"><i class="fas fa-video"></i> Cinematography</span>
+                <h4>Cinematography Reel #1</h4>
+                <p>Shot & Directed by @pix3lhaze · 4K 60fps</p>
+                <button class="card-view-btn" onclick="openLightbox('Cinematography Reel #1','Shot & Directed by Himanshu Raj (@pix3lhaze)', 'videos/cine1.mp4', 'video')"><i class="fas fa-play"></i> Watch Video</button>
+              </div>
+            </div>
+          </div>
+          <div class="card-info"><h4>Cinematography Reel #1</h4><div class="card-tags"><span>Cinematography</span><span>Direction</span></div></div>
+        </div>
+
+        <div class="portfolio-card" data-category="video" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-media">
+            <img src="videos/thumb1.jpg" alt="Madhuram '26 — Cultural Event Edit" class="card-thumb-img thumb-madhuram" />
+            <div class="card-overlay">
+              <div class="card-overlay-content">
+                <span class="card-type"><i class="fas fa-cut"></i> Video Edit</span>
+                <h4>Madhuram '26 — Cultural Event Edit</h4>
+                <p>High-energy stage performance & beat-synced edit</p>
+                <button class="card-view-btn" onclick="openLightbox('Madhuram \'26 — Cultural Event Edit','High-energy stage performance & beat-synced video edit', 'videos/video1.mp4', 'video')"><i class="fas fa-play"></i> Watch Video</button>
+              </div>
+            </div>
+          </div>
+          <div class="card-info"><h4>Madhuram '26 — Cultural Event Edit</h4><div class="card-tags"><span>Event Edit</span><span>Beat Sync</span></div></div>
+        </div>
+
+        <!-- Row 2: Photography #1 (1-col) + Video Edit #2 (1-col) + Photography #2 (1-col) -->
+        <div class="portfolio-card" data-category="photo" data-aos="fade-up" data-aos-delay="150">
+          <div class="card-media">
+            <img src="images/photo1_web.jpg" alt="Photography #1 — Portrait & Fine Art" class="card-thumb-img" />
+            <div class="card-overlay">
+              <div class="card-overlay-content">
+                <span class="card-type"><i class="fas fa-camera"></i> Photography</span>
+                <h4>Photography #1</h4>
+                <p>Fine Art & Portraiture by @pix3lhaze</p>
+                <button class="card-view-btn" onclick="openLightbox('Photography #1','Fine Art & Portrait Photography by Himanshu Raj', 'images/photo1_new.jpg', 'image')"><i class="fas fa-eye"></i> View Photo</button>
+              </div>
+            </div>
+          </div>
+          <div class="card-info"><h4>Photography #1</h4><div class="card-tags"><span>Portrait</span><span>Fine Art</span></div></div>
+        </div>
+
+        <div class="portfolio-card" data-category="video" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-media">
+            <img src="videos/thumb2.jpg" alt="Video Edit #2 — Cinematic Commercial Reel" class="card-thumb-img" />
+            <div class="card-overlay">
+              <div class="card-overlay-content">
+                <span class="card-type"><i class="fas fa-cut"></i> Video Edit</span>
+                <h4>Video Edit #2</h4>
+                <p>Color graded & beat-synced edit · 4K 60fps</p>
+                <button class="card-view-btn" onclick="openLightbox('Video Edit #2','High-energy video edit by Himanshu Raj (@pix3lhaze)', 'videos/video2_web.mp4', 'video')"><i class="fas fa-play"></i> Watch Video</button>
+              </div>
+            </div>
+          </div>
+          <div class="card-info"><h4>Video Edit #2</h4><div class="card-tags"><span>Video Edit</span><span>VFX</span></div></div>
+        </div>
+
+        <div class="portfolio-card" data-category="photo" data-aos="fade-up" data-aos-delay="250">
+          <div class="card-media">
+            <img src="images/photo2_web.jpg" alt="Photography #2 — Landscape & Visual Aesthetics" class="card-thumb-img" />
+            <div class="card-overlay">
+              <div class="card-overlay-content">
+                <span class="card-type"><i class="fas fa-camera"></i> Photography</span>
+                <h4>Photography #2</h4>
+                <p>Landscape & Visual Aesthetics by @pix3lhaze</p>
+                <button class="card-view-btn" onclick="openLightbox('Photography #2','Landscape & Visual Aesthetics by Himanshu Raj', 'images/photo2_new.jpg', 'image')"><i class="fas fa-eye"></i> View Photo</button>
+              </div>
+            </div>
+          </div>
+          <div class="card-info"><h4>Photography #2</h4><div class="card-tags"><span>Landscape</span><span>Aesthetics</span></div></div>
+        </div>
+      </div>
+      <div class="showreel-section" data-aos="fade-up">
+        <div class="showreel-inner">
+          <div class="showreel-text">
+            <h3>Watch My Showreel</h3>
+            <p>2 minutes of pure cinematic excellence</p>
+          </div>
+          <a href="https://www.instagram.com/pix3lhaze" target="_blank" class="showreel-btn">
+            <div class="play-circle"><i class="fas fa-play"></i></div>
+            <span>Play Showreel</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────── SERVICES ─────────────────── -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-label">
+        <span class="label-line"></span><span>What I Offer</span><span class="label-line"></span>
+      </div>
+      <h2 class="section-title center-text">My <span class="gradient-text">Services</span></h2>
+      <div class="services-grid">
+        <div class="service-card featured-service" data-aos="fade-up" data-aos-delay="0">
+          <div class="featured-badge">Most Popular</div>
+          <div class="service-icon-wrap"><i class="fas fa-cut"></i></div>
+          <h3>Video Editing</h3>
+          <p>Professional cuts, transitions, audio sync, and storytelling that makes your video unforgettable.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> Short Films & Documentaries</li>
+            <li><i class="fas fa-check"></i> YouTube & Social Media Content</li>
+            <li><i class="fas fa-check"></i> Commercial & Event Films</li>
+            <li><i class="fas fa-check"></i> Music Videos</li>
+          </ul>
+          <div class="service-footer">
+            <span class="service-price">Starting ₹999</span>
+            <a href="#contact" class="service-link">Get Quote <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-icon-wrap"><i class="fas fa-palette"></i></div>
+          <h3>Color Grading</h3>
+          <p>Hollywood-level color grading that gives your footage that cinematic look you've always wanted.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> LUTs & Custom Color Science</li>
+            <li><i class="fas fa-check"></i> Skin Tone Correction</li>
+            <li><i class="fas fa-check"></i> Cinematic Look Development</li>
+            <li><i class="fas fa-check"></i> DaVinci Resolve Workflow</li>
+          </ul>
+          <div class="service-footer">
+            <span class="service-price">Starting ₹1499</span>
+            <a href="#contact" class="service-link">Get Quote <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon-wrap"><i class="fas fa-video"></i></div>
+          <h3>Cinematography</h3>
+          <p>I bring camera and creative direction to your project, crafting visuals that speak louder than words.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> Commercial Shoots</li>
+            <li><i class="fas fa-check"></i> Fashion & Editorial Films</li>
+            <li><i class="fas fa-check"></i> Event Coverage</li>
+            <li><i class="fas fa-check"></i> Brand Identity Films</li>
+          </ul>
+          <div class="service-footer">
+            <span class="service-price">Starting ₹4999</span>
+            <a href="#contact" class="service-link">Get Quote <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-icon-wrap"><i class="fas fa-camera-retro"></i></div>
+          <h3>Photography</h3>
+          <p>Capturing emotion, light, and story in a single frame with technical precision and artistic flair.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> Portrait & Headshots</li>
+            <li><i class="fas fa-check"></i> Product Photography</li>
+            <li><i class="fas fa-check"></i> Events & Concerts</li>
+            <li><i class="fas fa-check"></i> Landscape & Travel</li>
+          </ul>
+          <div class="service-footer">
+            <span class="service-price">Starting ₹2499</span>
+            <a href="#contact" class="service-link">Get Quote <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-icon-wrap"><i class="fas fa-photo-film"></i></div>
+          <h3>Reels & Shorts</h3>
+          <p>Scroll-stopping Instagram Reels, YouTube Shorts, and TikTok videos that go viral.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> Trending Reels Editing</li>
+            <li><i class="fas fa-check"></i> Beat Sync Videos</li>
+            <li><i class="fas fa-check"></i> Transitions & Effects</li>
+            <li><i class="fas fa-check"></i> Story Editing</li>
+          </ul>
+          <div class="service-footer">
+            <span class="service-price">Starting ₹499</span>
+            <a href="#contact" class="service-link">Get Quote <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+          <div class="service-icon-wrap"><i class="fas fa-code"></i></div>
+          <h3>Web Development</h3>
+          <p>Modern, responsive websites and portfolios built with clean code and stunning visual design that leaves a lasting impression.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> Portfolio &amp; Personal Sites</li>
+            <li><i class="fas fa-check"></i> Landing Pages &amp; Business Sites</li>
+            <li><i class="fas fa-check"></i> Responsive &amp; Mobile-First</li>
+            <li><i class="fas fa-check"></i> SEO Optimized &amp; Fast</li>
+          </ul>
+          <div class="service-footer">
+            <span class="service-price">Starting ₹4999</span>
+            <a href="#contact" class="service-link">Get Quote <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────────── CONTACT ─────────────────── -->
+  <section class="contact" id="contact">
+    <div class="contact-bg"></div>
+    <div class="container">
+      <div class="section-label">
+        <span class="label-line"></span><span>Get In Touch</span><span class="label-line"></span>
+      </div>
+      <h2 class="section-title center-text">Let's Create Something <span class="gradient-text">Amazing</span></h2>
+      <p class="section-subtitle">Have a project in mind? Let's bring your vision to life.</p>
+      <div class="contact-grid">
+        <div class="contact-info" data-aos="fade-right">
+          <div class="contact-card-info">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fab fa-instagram"></i></div>
+              <div><h4>Instagram</h4><a href="https://www.instagram.com/pix3lhaze" target="_blank">@pix3lhaze</a></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div><h4>Email</h4><a href="mailto:hraj79505@gmail.com">hraj79505@gmail.com</a></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div><h4>Location</h4><span>India 🇮🇳</span></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-clock"></i></div>
+              <div><h4>Response Time</h4><span>Within 24 hours</span></div>
+            </div>
+          </div>
+          <div class="contact-social">
+            <h4>Follow My Work</h4>
+            <div class="social-buttons">
+              <a href="https://www.instagram.com/pix3lhaze" target="_blank" class="social-btn instagram"><i class="fab fa-instagram"></i> Instagram</a>
+              <a href="https://www.linkedin.com/in/himanshu-raj-pix3l/" target="_blank" class="social-btn linkedin"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-wrap" data-aos="fade-left">
+          <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName">Your Name</label>
+                <input type="text" id="contactName" name="from_name" placeholder="Your Name" required />
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">Email Address</label>
+                <input type="email" id="contactEmail" name="from_email" placeholder="you@example.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contactService">Service Needed</label>
+              <select id="contactService" name="service">
+                <option value="">Select a service...</option>
+                <option value="Video Editing">Video Editing</option>
+                <option value="Color Grading">Color Grading</option>
+                <option value="Cinematography">Cinematography</option>
+                <option value="Photography">Photography</option>
+                <option value="Reels / Shorts">Reels / Shorts</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="contactBudget">Budget Range</label>
+              <select id="contactBudget" name="budget">
+                <option value="">Select budget...</option>
+                <option value="Under ₹5,000">Under ₹5,000</option>
+                <option value="₹5,000 – ₹15,000">₹5,000 – ₹15,000</option>
+                <option value="₹15,000 – ₹50,000">₹15,000 – ₹50,000</option>
+                <option value="₹50,000+">₹50,000+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">Tell Me About Your Project</label>
+              <textarea id="contactMessage" name="message" rows="5" placeholder="Describe your vision, timeline, and any specific requirements..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary full-width" id="submitBtn">
+              <span id="submitText">Send Message</span>
+              <i class="fas fa-paper-plane" id="submitIcon"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────── FOOTER ─────────────────── -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <span class="logo-pixel">pix3l</span><span class="logo-haze">haze</span>
+        <p>Turning moments into masterpieces.</p>
+      </div>
       <div class="footer-links">
-        <a href="https://www.instagram.com/pix3lhaze" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.linkedin.com/in/himanshu-raj-pix3l/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:hraj79505@gmail.com">Email</a>
+        <div class="footer-col">
+          <h5>Navigate</h5>
+          <a href="#home">Home</a><a href="#about">About</a>
+          <a href="#skills">Skills</a><a href="#portfolio">Portfolio</a>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <a href="#services">Video Editing</a><a href="#services">Color Grading</a>
+          <a href="#services">Cinematography</a><a href="#services">Photography</a>
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <a href="https://www.instagram.com/pix3lhaze" target="_blank">Instagram</a>
+          <a href="https://www.linkedin.com/in/himanshu-raj-pix3l/" target="_blank">LinkedIn</a>
+          <a href="#contact">Contact</a>
+        </div>
       </div>
-      <p class="footer-copy">&copy; 2026 &middot; Himanshu Raj &middot; All rights reserved</p>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 <a href="https://www.pix3lhaze.in" class="accent-gold">www.pix3lhaze.in</a> · Himanshu Raj · All Rights Reserved</p>
+    </div>
+    <div class="footer-glow"></div>
+  </footer>
+
+  <!-- ─────────────────── LIGHTBOX ─────────────────── -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-inner" onclick="event.stopPropagation()">
+      <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+      <div class="lightbox-content">
+        <div class="lightbox-media"><i class="fas fa-play-circle"></i></div>
+        <div class="lightbox-info">
+          <h3 id="lightboxTitle"></h3>
+          <p id="lightboxDesc"></p>
+          <div class="lightbox-actions">
+            <a href="https://www.instagram.com/pix3lhaze" target="_blank" class="btn-primary">
+              <i class="fab fa-instagram"></i> View on Instagram
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</footer>
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightboxClose"><span>close</span> <span class="lx-x">&times;</span></button>
-  <div class="lightbox-inner"><video class="lightbox-video" id="lightboxVideo" controls playsinline></video></div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="script.js"></script>
+
+  <!-- ─────────────────── BACK TO TOP ─────────────────── -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
